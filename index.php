@@ -1,4 +1,5 @@
 <?php
+$success = "";
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
     $name = $_POST['username'];
@@ -7,6 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
     $password = $_POST['userpassword'];
 
     if (!empty($name) && !empty($city) && !empty($email) && !empty($password)) {
+        include 'connection.php';
+        $sql_insert = "INSERT INTO `users` (name,city,email,password) VALUES ('$name','$city','$email','$password')";
+        try {
+            mysqli_query($conn, $sql_insert);
+            $success = "data inserted succesfully";
+        } catch (mysqli_sql_exception $e) {
+            $e->getMessage();
+        }
     } else {
         $error = "all feilds are required";
     }
@@ -25,10 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
 
 <body class="bg-pink-200 h-screen w-screen grid place-items-center">
 
+    <?php
+    include 'navbar.php';
+    ?>
+
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="max-w-md w-full p-6 bg-white shadow-md rounded-lg space-y-6">
         <h1 class="text-2xl font-bold text-center text-pink-800">FORM</h1>
 
         <?php if (!empty($error)) echo "<p class='text-red-800 text-center'>$error</p>"; ?>
+        <?php if (!empty($success)) echo "<p class='text-green-800 text-center'>$success</p>"; ?>
 
         <div class="grid gap-1">
             <label for="username" class="text-pink-700 font-medium">Name</label>
