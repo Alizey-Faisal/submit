@@ -59,10 +59,10 @@
           <a href="index.php" class="block py-2 px-3 rounded-md bg-pink-600 text-white md:bg-transparent md:text-pink-700 md:hover:text-pink-600">create</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 rounded-md hover:bg-pink-200 md:hover:bg-transparent md:hover:text-pink-600">About</a>
+          <a href="home.php" class="block py-2 px-3 rounded-md hover:bg-pink-200 md:hover:bg-transparent md:hover:text-pink-600">home</a>
         </li>
         <li>
-          <a href="contact.php" class="block py-2 px-3 rounded-md hover:bg-pink-200 md:hover:bg-transparent md:hover:text-pink-600">contact</a>
+          <a href="contact.php" class="block py-2 px-3 rounded-md hover:bg-pink-200 md:hover:bg-transparent md:hover:text-pink-600">timeline</a>
         </li>
       </ul>
     </div>
